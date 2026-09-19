@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portafolio | Juan Manuel Marmolejo Morales</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <nav class="navegacion-tabs" aria-label="Navegación del portafolio">
+    <a href="#presentacion">Inicio</a>
+    <a href="#laboral">Historial</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+
+  <main class="pagina">
+
+    <!-- ===================== PANEL IZQUIERDO: PORTAFOLIO ===================== -->
+    <section class="panel panel-principal" id="presentacion">
+
+      <header class="cabecera">
+        <h1>Juan Manuel Marmolejo Morales</h1>
+        <p class="rol">Estudiante de Ingeniería de Sistemas</p>
+      </header>
+
+      <!-- Foto + Presentación -->
+      <div class="presentacion">
+        <figure class="retrato">
+          <div class="marco">
+            <img id="foto-perfil"
+                 alt="Foto de Juan Manuel Marmolejo Morales"
+                 src="imagenes\foto.png">
+          </div>    
+          <figcaption class="placa">
+            <span class="placa-titulo">Autorretrato</span>
+            <span class="placa-dato">2026</span>
+            <label class="subir">
+              Subir foto
+              <input type="file" id="entrada-foto" class="visualmente-oculto" accept="image/*">
+            </label>
+          </figcaption>
+        </figure>
+
+        <div class="texto-presentacion">
+          <h2>Presentación</h2>
+          <p>
+            Soy estudiante de Ingeniería de Sistemas en la Universidad Santiago de Cali,
+            donde estudio desde 2021. Me gusta el arte y me gusta ser lo más eficiente posible:
+            entender bien el problema, quitar lo que sobra y entregar algo que funcione.
+          </p>
+          <p>
+            En la universidad he trabajado en proyectos de IoT con ESP32 y MQTT, investigación
+            de operaciones y análisis de datos con Python. También desarrollé un aplicativo web
+            para la cadena de suministros de la USC como proyecto de una materia, usando Python,
+            Django, Supabase, Flutter y React. En paralelo, desde 2024 trabajo en atención al
+            cliente para plataformas financieras, donde aprendí a comunicarme con claridad y a
+            resolver problemas con calma.
+          </p>
+          <p>
+            Mis trabajos han sido bilingües: manejo español e inglés y cuento con más de dos años
+            de experiencia comunicándome en inglés.
+          </p>
+          <ul class="etiquetas" aria-label="Intereses y áreas de trabajo">
+            <li>Arte</li>
+            <li>Eficiencia</li>
+            <li>IoT</li>
+            <li>Análisis de datos</li>
+            <li>Python</li>
+            <li>Django</li>
+            <li>Supabase</li>
+            <li>Flutter</li>
+            <li>React</li>
+            <li>Español e inglés</li>
+            <li>Atención al cliente</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Historial académico -->
+      <section class="seccion" aria-labelledby="titulo-academico">
+        <h2 id="titulo-academico">Historial académico</h2>
+
+        <div class="grupo">
+          <h3>Colegio</h3>
+          <ol class="hitos">
+            <li class="hito">
+              <p class="hito-titulo">Teresa Calderón de Lasso, Palmira</p>
+              <p class="hito-detalle">Primero a octavo</p>
+            </li>
+            <li class="hito">
+              <p class="hito-titulo">Cárdenas del Centro, Palmira</p>
+              <p class="hito-detalle">Noveno a décimo</p>
+            </li>
+          </ol>
+        </div>
+
+        <div class="grupo">
+          <h3>Universidad</h3>
+          <ol class="hitos">
+            <li class="hito">
+              <p class="hito-titulo">Universidad Santiago de Cali</p>
+              <p class="hito-detalle">Ingeniería de Sistemas (Noveno semestre)</p>
+              <p class="hito-fecha">2021 – Actualidad</p>
+            </li>
+          </ol>
+        </div>
+
+        <div class="grupo">
+          <h3>Cursos y Diplomados</h3>
+          <ul id="lista-cursos" class="hitos" data-vacio="Aún no hay cursos ni diplomados agregados."></ul>
+
+          <form class="agregar" data-lista="lista-cursos">
+            <button type="submit">+ Agregar</button>
+            <label class="visualmente-oculto" for="nuevo-curso">Nuevo curso o diplomado</label>
+            <input type="text" id="nuevo-curso" placeholder="Ej: Taller de React" autocomplete="off">
+          </form>
+        </div>
+      </section>
+
+    </section>
+
+    <!-- ===================== PANEL DERECHO: HISTORIAL LABORAL ===================== -->
+    <section class="panel panel-laboral" id="laboral" aria-labelledby="titulo-laboral">
+      <h2 id="titulo-laboral">Historial laboral</h2>
+
+      <ol id="lista-trabajo" class="hitos">
+
+        <li class="hito">
+          <div class="logos">
+            <div class="logo-slot"><img src="imagenes/foundever-banner-pr.jpg" alt="Logo de Foundever"></div>
+            <div class="logo-slot"><img src="imagenes/cashapp.png" alt="Logo de Cash App"></div>
+          </div>
+          <p class="hito-titulo">Customer Support</p>
+          <p class="hito-detalle">Foundever, campaña Cash App (institución financiera)</p>
+          <p class="hito-fecha">2024 – 2025</p>
+        </li>
+
+        <li class="hito">
+          <div class="logos">
+            <div class="logo-slot"><img src="imagenes/taskus.webp" alt="Logo de TaskUs"></div>
+            <div class="logo-slot"><img src="imagenes/wise.png" alt="Logo de Wise"></div>
+          </div>
+          <p class="hito-titulo">Customer Support</p>
+          <p class="hito-detalle">TaskUs, campaña Wise (institución financiera)</p>
+          <p class="hito-fecha">2025 – 2026</p>
+        </li>
+
+      </ol>
+
+      <form class="agregar" data-lista="lista-trabajo">
+        <button type="submit">+ Agregar</button>
+        <label class="visualmente-oculto" for="nuevo-trabajo">Nuevo trabajo</label>
+        <input type="text" id="nuevo-trabajo" placeholder="Ej: Cargo, empresa y año" autocomplete="off">
+        <label class="subir subir-icono">
+          Subir icono
+          <input type="file" class="visualmente-oculto" accept="image/*" data-role="icono">
+        </label>
+      </form>
+    </section>
+
+  </main>
+
+  <section class="panel panel-contacto" id="contacto" aria-labelledby="titulo-contacto">
+    <h2 id="titulo-contacto">Contacto</h2>
+    <ul class="contacto-lista">
+      <li><strong>Correo:</strong> juan0303manuel@gmail.com</li>
+      <li><strong>Teléfono:</strong> 3152995430</li>
+    </ul>
+  </section>
+
+  <footer class="pie">
+    <p>Portafolio personal, 2026</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

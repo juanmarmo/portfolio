@@ -1,0 +1,512 @@
+/* ==========================================================
+   Portafolio personal — Juan Manuel Marmolejo Morales
+   Paleta: papel frío, tinta azul noche, cobalto y amarillo sol.
+   Los recuadros con borde grueso imitan el marcador del tablero.
+   ========================================================== */
+
+:root {
+  --papel: #f3f3f3;
+  --panel: #ffffff;
+  --tinta: #111111;
+  --apagado: #5b5b5b;
+  --linea: #d9d9d9;
+  --linea-fuerte: #8b8b8b;
+  --suave: #f0f0f0;
+  --sombra: rgba(17, 17, 17, 0.08);
+
+  --fuente-titulos: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --fuente-texto: "Source Serif 4", Georgia, "Times New Roman", serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--papel);
+  color: var(--tinta);
+  font-family: var(--fuente-texto);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+
+.navegacion-tabs {
+  max-width: 1120px;
+  margin: 1.25rem auto 0;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.navegacion-tabs a {
+  display: inline-block;
+  padding: 0.65rem 1rem;
+  border: 1px solid var(--linea-fuerte);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--tinta);
+  text-decoration: none;
+  font-family: var(--fuente-titulos);
+  font-weight: 700;
+  transition: background-color 0.15s, border-color 0.15s, transform 0.15s;
+}
+
+.navegacion-tabs a:hover {
+  background: var(--tinta);
+  color: var(--panel);
+  transform: translateY(-1px);
+}
+
+/* ---------- Utilidades ---------- */
+
+.visualmente-oculto {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+:focus-visible {
+  outline: 3px solid var(--tinta);
+  outline-offset: 2px;
+}
+
+/* ---------- Estructura general ---------- */
+
+.pagina {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: clamp(1rem, 4vw, 3rem);
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  gap: clamp(1rem, 3vw, 2rem);
+  align-items: start;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--linea);
+  border-radius: 18px;
+  padding: clamp(1.25rem, 3vw, 2.25rem);
+  box-shadow: 0 10px 30px rgba(17, 17, 17, 0.04);
+}
+
+/* ---------- Tipografía ---------- */
+
+h1,
+h2,
+h3 {
+  font-family: var(--fuente-titulos);
+  color: var(--tinta);
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4.2vw, 3rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+}
+
+h2 {
+  margin: 0 0 1rem;
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+h3 {
+  margin: 1.75rem 0 0.75rem;
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+.rol {
+  margin: 0.5rem 0 0;
+  font-family: var(--fuente-titulos);
+  font-size: 1.1rem;
+  color: var(--apagado);
+}
+
+/* ---------- Foto + Presentación ---------- */
+
+.presentacion {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 2.25rem;
+  margin-top: 2rem;
+  padding-bottom: 2.25rem;
+  border-bottom: 1px solid var(--linea);
+}
+
+.retrato {
+  margin: 0;
+}
+
+/* El marco es lo más llamativo de la página: todo lo demás se mantiene tranquilo */
+.marco {
+  width: 220px;
+  height: 220px;
+  margin: 0 auto;
+  background: var(--panel);
+  border: 1px solid var(--linea);
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 10px 22px var(--sombra);
+}
+
+.marco img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  background: var(--suave);
+  border-radius: 50%;
+}
+
+.placa {
+  margin-top: 1.6rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.15rem 0.6rem;
+  font-family: var(--fuente-titulos);
+  font-size: 0.9rem;
+}
+
+.placa-titulo {
+  font-weight: 800;
+}
+
+.placa-dato {
+  color: var(--apagado);
+}
+
+.subir {
+  margin-top: 0.6rem;
+  flex-basis: 100%;
+  width: fit-content;
+  padding: 0.4rem 0.8rem;
+  border: 2px solid var(--tinta);
+  border-radius: 6px;
+  background: var(--panel);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.subir-icono {
+  margin-top: 0;
+  flex-basis: auto;
+  border-radius: 999px;
+  border: 1px solid var(--linea-fuerte);
+  background: var(--suave);
+}
+
+.subir:hover {
+  background: var(--tinta);
+  color: var(--panel);
+}
+
+.subir:focus-within {
+  outline: 3px solid var(--tinta);
+  outline-offset: 2px;
+}
+
+.guardar-foto {
+  flex-basis: 100%;
+  width: fit-content;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid var(--linea-fuerte);
+  border-radius: 999px;
+  background: var(--papel);
+  color: var(--tinta);
+  font: 600 0.85rem var(--fuente-titulos);
+  cursor: pointer;
+}
+
+.guardar-foto:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.texto-presentacion {
+  max-width: 62ch;
+}
+
+.etiquetas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.etiquetas li {
+  padding: 0.2rem 0.7rem;
+  border: 1px solid var(--linea-fuerte);
+  border-radius: 999px;
+  background: var(--suave);
+  font-family: var(--fuente-titulos);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* ---------- Secciones de historial ---------- */
+
+.seccion {
+  margin-top: 2.25rem;
+}
+
+.grupo + .grupo {
+  margin-top: 0.5rem;
+}
+
+/* Línea de tiempo: se usa en el historial académico y en el laboral */
+.hitos {
+  margin: 0;
+  padding: 0 0 0 1.5rem;
+  list-style: none;
+  border-left: 1px solid var(--linea-fuerte);
+}
+
+.hito {
+  position: relative;
+  padding-bottom: 1.4rem;
+}
+
+.hito:last-child {
+  padding-bottom: 0.1rem;
+}
+
+.hito::before {
+  content: "";
+  position: absolute;
+  top: 0.45rem;
+  left: calc(-1.5rem - 1px - 7px);
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--panel);
+  border-radius: 50%;
+  background: var(--tinta);
+}
+
+/* Mensaje cuando una lista aún no tiene elementos */
+.hitos:empty {
+  padding-left: 0;
+  border-left: 0;
+}
+
+.hitos:empty::before {
+  content: attr(data-vacio);
+  color: var(--apagado);
+  font-style: italic;
+}
+
+.hito-titulo {
+  margin: 0;
+  font-family: var(--fuente-titulos);
+  font-size: 1.05rem;
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.hito-detalle {
+  margin: 0.15rem 0 0;
+  color: var(--apagado);
+  font-size: 0.98rem;
+  line-height: 1.5;
+}
+
+.hito-fecha {
+  margin: 0.3rem 0 0;
+  font-family: var(--fuente-titulos);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--apagado);
+}
+
+/* ---------- Espacios para logos (empresa y campaña) ---------- */
+
+.logos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.logo-slot {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  overflow: hidden;
+  border: 1.5px solid var(--linea-fuerte);
+  border-radius: 8px;
+  background: #F6F7F9;
+  font-family: var(--fuente-titulos);
+  font-size: 0.7rem;
+  line-height: 1.2;
+  text-align: center;
+  color: var(--apagado);
+}
+
+/* Borde punteado mientras el espacio esté esperando su logo */
+.logo-slot.vacio {
+  border-style: dashed;
+  border-width: 2px;
+}
+
+.logo-slot img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 6px;
+  object-fit: contain;
+}
+
+/* ---------- Formulario "+ Agregar" ---------- */
+
+.agregar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+
+.agregar button {
+  padding: 0.55rem 0.95rem;
+  border: 1px solid var(--tinta);
+  border-radius: 999px;
+  background: var(--tinta);
+  color: #fff;
+  font-family: var(--fuente-titulos);
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.agregar button:hover {
+  opacity: 0.9;
+}
+
+.agregar input {
+  flex: 1 1 12rem;
+  min-width: 0;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid var(--linea-fuerte);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--tinta);
+  font: inherit;
+  font-size: 1rem;
+}
+
+.agregar input[data-role="icono"] {
+  flex: 0 1 13rem;
+  max-width: 14rem;
+}
+
+.agregar input::placeholder {
+  color: #6B7285;
+}
+
+/* ---------- Pie de página ---------- */
+
+.panel-contacto {
+  max-width: 1120px;
+  margin: 1rem auto 0;
+  padding: clamp(1.25rem, 3vw, 2.25rem);
+}
+
+.contacto-lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+  font-size: 1.1rem;
+}
+
+.contacto-lista li {
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--linea);
+  border-radius: 12px;
+  background: #f7f7f7;
+  font-family: var(--fuente-titulos);
+}
+
+.pie {
+  padding: 0.5rem 1rem 2.5rem;
+  text-align: center;
+  font-family: var(--fuente-titulos);
+  font-size: 0.9rem;
+  color: var(--apagado);
+}
+
+.pie p {
+  margin: 0;
+}
+
+.hito-icono {
+  display: inline-flex;
+  width: 2.25rem;
+  height: 2.25rem;
+  margin-bottom: 0.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid var(--linea);
+  background: var(--suave);
+  box-shadow: 0 4px 10px rgba(17, 17, 17, 0.06);
+}
+
+.hito-icono img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 900px) {
+  .pagina {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .presentacion {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .retrato {
+    max-width: 240px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
